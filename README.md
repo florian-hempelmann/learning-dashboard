@@ -5,7 +5,7 @@ This project is primarily focused on learning and practicing modern web developm
 App Router, React components and hooks, server actions, form handling, responsive layouts, authentication and Tailwind CSS.
 
 My goal: To visualize my learning progress in a dashboard application, including the ability to create, edit, 
-and manage learning content, like technologies, tools, projects or used documentations.
+and manage learning content, like technologies, tools or projects.
 
 ---
 ## Start
