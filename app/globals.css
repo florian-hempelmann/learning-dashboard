@@ -3,6 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --navtab-foreground: #101828;
+  --navtab-background: #e9ecef;
+  --navtab-foreground-hover: #1971c2;
+  --navtab-background-hover: #ced4da;
+  --navtab-foreground-active: #232e43;
+  --navtab-background-active: #868e96;
 }
 
 @theme inline {
@@ -10,12 +16,23 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --navtab-foreground: var(--navtab-foreground);
+  --navtab-background: var(--navtab-background);
+  --navtab-foreground-hover: var(--navtab-foreground-hover);
+  --navtab-background-hover: var(--navtab-background-hover);
+  --navtab-background-active: var(--navtab-background-active);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --navtab-foreground: #e9ecef;
+    --navtab-background: #101828;
+    --navtab-foreground-hover: #4dabf7;
+    --navtab-background-hover: #2a3c60;
+    --navtab-foreground-active: #fff9db;
+    --navtab-background-active: #2a3c60;
   }
 }
 
@@ -23,4 +40,18 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@utility navtab {
+  background: var(--navtab-background);
+  color: var(--foreground);
+  &:hover {
+    background: var(--navtab-background-hover);
+    color: var(--navtab-foreground-hover);
+  }
+}
+
+@utility navtab-active {
+  background: var(--navtab-background-active);
+  color: var(--navtab-foreground-active);
 }
