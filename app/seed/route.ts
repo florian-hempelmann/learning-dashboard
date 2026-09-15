@@ -34,7 +34,7 @@ async function seedCertificates(){
     await sql`
     CREATE TABLE IF NOT EXISTS certificate (
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-      user_id INTEGER NOT NULL,
+      user_id UUID NOT NULL,
       label VARCHAR(100) NOT NULL,
       date DATE NOT NULL,
 
@@ -48,7 +48,7 @@ async function seedCertificates(){
         certificates.map(async (certificate) => {
             return sql`
             INSERT INTO certificate (user_id, label, date)
-            VALUES (${certificate.user_id}, ${certificate.label}, ${certificate.date});
+            VALUES (${certificate.userId}, ${certificate.label}, ${certificate.date});
       `;
         }),
     );
@@ -61,7 +61,7 @@ async function seedProjects(){
     await sql`
     CREATE TABLE IF NOT EXISTS project (
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-      user_id INTEGER NOT NULL,
+      user_id UUID NOT NULL,
       label VARCHAR(100) NOT NULL,
       description TEXT,
       start_date DATE NOT NULL,
@@ -77,8 +77,8 @@ async function seedProjects(){
         projects.map(async (project) => {
             return sql`
             INSERT INTO project (user_id, label, description, start_date, end_date)
-            VALUES (${project.user_id}, ${project.label}, ${project.description}, 
-                    ${project.start_date}, ${project.end_date});
+            VALUES (${project.userId}, ${project.label}, ${project.description}, 
+                    ${project.startDate}, ${project.endDate});
       `;
         }),
     );
@@ -123,7 +123,7 @@ async function seedFrameworks(){
         frameworks.map(async (framework) => {
             return sql`
             INSERT INTO framework (cat_id, label)
-            VALUES (${framework.cat_id}, ${framework.label});
+            VALUES (${framework.catId}, ${framework.label});
       `;
         }),
     );
@@ -148,7 +148,7 @@ async function seedLanguages(){
         languages.map(async (language) => {
             return sql`
             INSERT INTO language (cat_id, label)
-            VALUES (${language.label}, ${language.date});
+            VALUES (${language.catId}, ${language.label});
       `;
         }),
     );
@@ -181,7 +181,7 @@ async function seedLearngoals(){
     await sql`
     CREATE TABLE IF NOT EXISTS language (
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-      user_id INTEGER NOT NULL,
+      user_id UUID NOT NULL,
       lsub_id INTEGER NOT NULL,
       label VARCHAR(255) NOT NULL,
       status TEXT DEFAULT 'UNKNOWN',
@@ -200,7 +200,7 @@ async function seedLearngoals(){
         learngoals.map(async (learngoal) => {
             return sql`
             INSERT INTO learngoal (user_id, lsub_id, label, status)
-            VALUES (${learngoal.user_id}, ${learngoal.lsub_id}, ${learngoal.label}, ${learngoal.status});
+            VALUES (${learngoal.userId}, ${learngoal.lsubId}, ${learngoal.label}, ${learngoal.status});
       `;
         }),
     );
@@ -213,8 +213,8 @@ async function seedLearnSessions(){
     await sql`
     CREATE TABLE IF NOT EXISTS learnsession (
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-      user_id INTEGER NOT NULL,
-      lg_id INTEGER NOT NULL,
+      user_id UUID NOT NULL,
+      lg_id UUID NOT NULL,
       start_time TIMESTAMP NOT NULL,
       end_time TIMESTAMP,
 
@@ -232,8 +232,8 @@ async function seedLearnSessions(){
         learnsessions.map(async (learnsession) => {
             return sql`
             INSERT INTO learnsession (user_id, lg_id, start_date, end_date)
-            VALUES (${learnsession.user_id}, ${learnsession.lg_id}, 
-                    ${learnsession.start_time}, ${learnsession.end_time});
+            VALUES (${learnsession.userId}, ${learnsession.lgId}, 
+                    ${learnsession.startTime}, ${learnsession.endTime});
       `;
         }),
     );
@@ -267,7 +267,7 @@ async function seedFrameworksProjects(){
         frameworksProjects.map(async (frameworksProject) => {
             return sql`
             INSERT INTO frameworksProject (fw_id, p_id)
-            VALUES (${frameworksProject.fw_id}, ${frameworksProject.p_id});
+            VALUES (${frameworksProject.fwId}, ${frameworksProject.pId});
       `;
         }),
     );
@@ -299,7 +299,7 @@ async function seedLanguagesProjects(){
         languagesProjects.map(async (languagesProject) => {
             return sql`
             INSERT INTO languagesProject (l_id, p_id)
-            VALUES (${languagesProject.fw_id}, ${languagesProject.p_id});
+            VALUES (${languagesProject.lId}, ${languagesProject.pId});
       `;
         }),
     );
@@ -311,8 +311,8 @@ async function seedLearngoalsLanguages(){
     await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     await sql`
     CREATE TABLE IF NOT EXISTS learngoal_language (
-      lg_id INTEGER NOT NULL,
-      l_id UUID NOT NULL,
+      lg_id UUID NOT NULL,
+      l_id INTEGER NOT NULL,
 
         CONSTRAINT pk_learngoal_language
           PRIMARY KEY (lg_id, l_id),
@@ -331,7 +331,7 @@ async function seedLearngoalsLanguages(){
         learngoalsLanguages.map(async (learngoalsLanguage) => {
             return sql`
             INSERT INTO learngoalsLanguage (lg_id, l_id)
-            VALUES (${learngoalsLanguage.lg_id}, ${learngoalsLanguage.l_id});
+            VALUES (${learngoalsLanguage.lgId}, ${learngoalsLanguage.lId});
       `;
         }),
     );
@@ -343,8 +343,8 @@ async function seedLearngoalsFrameworks(){
     await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     await sql`
     CREATE TABLE IF NOT EXISTS learngoal_framework (
-      lg_id INTEGER NOT NULL,
-      f_id UUID NOT NULL,
+      lg_id UUID NOT NULL,
+      f_id INTEGER NOT NULL,
 
         CONSTRAINT pk_learngoal_framework
           PRIMARY KEY (lg_id, f_id),
@@ -363,7 +363,7 @@ async function seedLearngoalsFrameworks(){
         learngoalsFrameworks.map(async (learngoalsFramework) => {
             return sql`
             INSERT INTO learngoalsFramework (lg_id, f_id)
-            VALUES (${learngoalsFramework.lg_id}, ${learngoalsFramework.f_id});
+            VALUES (${learngoalsFramework.lgId}, ${learngoalsFramework.fId});
       `;
         }),
     );
