@@ -2,12 +2,13 @@
 
 /*
 * abbreviations explained:
+*   fwId references id from framework
 *   catId references id from devCategory
+*   lId references id from language
 *   lsubId references id from learnsubject
 *   lgId references id from learngoal
 *   fwId references id from framework
 *   pId references id from project
-*   lId references id from language
 * */
 
 export type User = {
@@ -28,37 +29,35 @@ export type Project = {
     id: string;
     userId: string;
     label: string;
-    description: string;
+    description: string | null;
     startDate: string;
-    endDate: string;
+    endDate: string | null;
 }
 
 export type DevCategory = {
-    id: bigint;
+    id: number;
     label: string;
 }
 
 export type Framework = {
-    id: bigint;
-    catId: bigint;
+    id: number;
     label: string;
 }
 
 export type Language = {
-    id: bigint;
-    catId: bigint;
+    id: number;
     label: string;
 }
 
 export type Learnsubject = {
-    id: bigint;
+    id: number;
     label: string;
 }
 
 export type Learngoals = {
     id: string;
     userId: string;
-    lsubId: bigint;
+    lsubId: number;
     label: string;
     status: string;
 }
@@ -68,10 +67,20 @@ export type Learnsession = {
     userId: string;
     lgId: string;
     startTime: string;
-    endTime: string;
+    endTime: string | null;
 }
 
 /* Junction Objects */
+
+export type FrameworkDevCategory = {
+    fwId: number;
+    catId: number;
+}
+
+export type LanguageDevCategory = {
+    lId: number;
+    catId: number;
+}
 
 export type FrameworkProject = {
     fwId: bigint;
@@ -90,5 +99,5 @@ export type LearngoalLanguage = {
 
 export type LearngoalFramework = {
     lgId: string;
-    fId: bigint;
+    fwId: bigint;
 }
