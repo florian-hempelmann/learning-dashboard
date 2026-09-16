@@ -1,57 +1,163 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────
+   Primitive Colors
+   ───────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --navtab-foreground: #101828;
-  --navtab-background: #e9ecef;
-  --navtab-foreground-hover: #1971c2;
-  --navtab-background-hover: #ced4da;
-  --navtab-foreground-active: #232e43;
-  --navtab-background-active: #868e96;
+  --white: #ffffff;
+  --black: #000000;
+  --neutral-200: #e5e5e5;
+  --slate-300: #cbd5e1;
+  --slate-600: #475569;
+  --gray-500: #6b7280;
+  --gray-900: #111827;
+  --blue-400: #60a5fa;
+  --blue-600: #2563eb;
+  --yellow-50: #fefce8;
+}
+
+/* ─────────────────────────────
+   Light Theme
+   ───────────────────────────── */
+:root {
+  --background: var(--neutral-200);
+  --foreground: var(--gray-900);
+  --surface: var(--slate-300);
+  --surface-foreground: var(--gray-900);
+  --primary: var(--slate-300);
+  --primary-foreground: var(--blue-600);
+  --secondary: var(--slate-300);
+  --secondary-foreground: var(--slate-600);
+  --muted: var(--neutral-200);
+  --muted-foreground: var(--gray-500);
+  --border: var(--slate-600);
+
+  --surface-shadow:
+          0 6px 12px rgba(0, 0, 0, 0.18),
+          0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* ─────────────────────────────
+   Dark Theme
+   ───────────────────────────── */
+.dark {
+  --background: var(--slate-600);
+  --foreground: var(--neutral-200);
+  --surface: var(--gray-900);
+  --surface-foreground: var(--neutral-200);
+  --primary: var(--slate-600);
+  --primary-foreground: var(--blue-400);
+  --secondary: var(--slate-600);
+  --secondary-foreground: var(--yellow-50);
+  --muted: var(--gray-500);
+  --muted-foreground: var(--slate-300);
+  --border: var(--slate-300);
+
+  --surface-shadow:
+          0 6px 12px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --navtab-foreground: var(--navtab-foreground);
-  --navtab-background: var(--navtab-background);
-  --navtab-foreground-hover: var(--navtab-foreground-hover);
-  --navtab-background-hover: var(--navtab-background-hover);
-  --navtab-background-active: var(--navtab-background-active);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --navtab-foreground: #e9ecef;
-    --navtab-background: #101828;
-    --navtab-foreground-hover: #4dabf7;
-    --navtab-background-hover: #2a3c60;
-    --navtab-foreground-active: #fff9db;
-    --navtab-background-active: #2a3c60;
-  }
-}
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-@utility navtab {
-  background: var(--navtab-background);
-  color: var(--foreground);
+button {
+  background: var(--surface);
+  color: var(--surface-foreground);
   &:hover {
-    background: var(--navtab-background-hover);
-    color: var(--navtab-foreground-hover);
+    color: var(--primary-foreground);
   }
 }
 
-@utility navtab-active {
-  background: var(--navtab-background-active);
-  color: var(--navtab-foreground-active);
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+
+/* ─────────────────────────────
+   Navigation Specials
+   ───────────────────────────── */
+
+.nav-link-active {
+  position: relative;
+  border-radius: 2rem 0 0 2rem;
+}
+
+/* obere Ecke */
+.nav-link-active::before {
+  content: '';
+  position: absolute;
+
+  width: 2rem;
+  height: 2rem;
+
+  top: -2rem;
+  right: 0;
+
+  border-radius: 50%;
+
+  box-shadow: 1rem 1rem 0 var(--background);
+
+  z-index: 1;
+}
+
+/* untere Ecke */
+.nav-link-active::after {
+  content: '';
+  position: absolute;
+
+  width: 2rem;
+  height: 2rem;
+
+  bottom: -2rem;
+  right: 0;
+
+  border-radius: 50%;
+
+  box-shadow: 1rem -1rem 0 var(--background);
+
+  z-index: 1;
+}
+
+.navbar-transition {
+  position: relative;
+
+  width: calc(16rem + 40px); /* md:w-64 */
+  height: 40px;
+
+  background: var(--surface);
+}
+
+.navbar-transition::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+  top: 0;
+
+  width: 40px;
+  height: 40px;
+
+  background: var(--background);
+
+  border-top-left-radius: 100%;
 }
