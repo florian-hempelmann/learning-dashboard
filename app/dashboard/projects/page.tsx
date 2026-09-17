@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 export const metadata : Metadata = {
     title: 'My Projects',
-    description: 'A list of Projects I plan or do with come extra information.',
+    description: 'A list of planned or ongoing projects.',
 }
 
-export default function myProjects() {
+export default function projects() {
     return (
         <div>test</div>
     )
