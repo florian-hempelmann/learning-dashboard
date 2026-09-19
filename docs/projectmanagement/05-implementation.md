@@ -14,4 +14,8 @@ This File documents the implementation of this App chronologically as an overvie
 10. Creating mockups for dashboard homepage with light and dark theme (using Penpot)
 11. Adjust structured documentations in the /docs folder
 12. Implementing the UI from the mockups to the project
-    - implementing light-/darkmode logic from the start (using next-themes) 
+    - implementing light-/darkmode logic from the start (using next-themes)
+13. Implementing ORM Drizzle
+14. Changing project structure
+15. Change DB Setup from direct sql queries to drizzle migrations
+16. Install BetterAuth and adjusting schema and seed data

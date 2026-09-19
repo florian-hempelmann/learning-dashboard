@@ -1,6 +1,6 @@
 "use client"
 
-import {ThemeSwitcher} from "@/app/components/theme-switcher";
+import {ThemeSwitcher} from "@/src/app/components/theme-switcher";
 import {PowerIcon} from "@heroicons/react/24/outline";
 import {usePathname} from "next/navigation";
 

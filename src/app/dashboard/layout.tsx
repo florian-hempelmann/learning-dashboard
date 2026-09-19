@@ -1,4 +1,4 @@
-import SideNav from '@/app/components/dashboard/sidenav';
+import SideNav from '@/src/app/components/dashboard/sidenav';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
