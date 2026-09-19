@@ -5,5 +5,5 @@ import { relations } from "./schema/relations";
 config({ path: ".env" });
 
 export const db = drizzle(process.env.DATABASE_URL!, {
-    relations,
+    relations
 });
