@@ -34,8 +34,8 @@ export function ThemeSwitcher() {
           onClick={toggleTheme}
           aria-label={
             resolvedTheme === "dark"
-                ? "Zu Light Theme wechseln"
-                : "Zu Dark Theme wechseln"
+                ? "switch to light theme"
+                : "switch to dark theme"
           }
           className="cursor-pointer p-2 text-surface-foreground hover:text-primary-foreground rounded-full"
       >

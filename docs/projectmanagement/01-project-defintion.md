@@ -1,4 +1,4 @@
-# Projectdefinition
+# Project Definition
 
 ## Project Title
 Implementation of a Learning Dashboard

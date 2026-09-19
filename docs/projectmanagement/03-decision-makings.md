@@ -1,4 +1,4 @@
-# Decisionmakings
+# Decision Makings
 
 Language: English
 Programming Languages: TypeScript

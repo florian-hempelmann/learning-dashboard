@@ -8,7 +8,7 @@ export function Header() {
     const pathname = usePathname();
 
     const titles: Record<string, string> = {
-        "/dashboard/learngoals": "My Learngoals",
+        "/dashboard/learning-goals": "My Learning Goals",
         "/dashboard/projects": "My Projects",
         "/dashboard/technologies": "Technologies & Tools",
         "/dashboard/certificates": "My certificates",
