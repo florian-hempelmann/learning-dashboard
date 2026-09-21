@@ -101,6 +101,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 This project is part of my continued development as a software developer following my completed retraining 
 program. It builds on my previous experience working with B2B applications and CMS-based environments while 
 allowing me to deepen my knowledge of modern frontend and full-stack web development with React and Next.js.
+
 ---
 ## Resources and Documentation
 - [Next.js Documentation](https://nextjs.org/docs) - Framework & App Router
