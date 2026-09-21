@@ -1,0 +1,43 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import { Providers } from "./providers";
+import {Header} from "@/src/app/components/header";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s - Learning Dashboard",
+    default: "Learning Dashboard",
+  },
+  description: "Dashboard contains personal learning growth and is used for learning experience. " +
+      "This Dashboard is publicly available on github for recruiter.",
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
+  return (
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body className="flex min-h-screen flex-col bg-background text-foreground">
+        <Providers>
+          <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+        </Providers>
+      </body>
+    </html>
+  );
+}

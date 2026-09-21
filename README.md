@@ -1,5 +1,5 @@
 # Learning Dashboard
-A learning project built with Next.js, TypeScript, React, and PostgresSQL.
+A learning project built with Next.js, TypeScript, React, and PostgreSQL.
 
 This project is primarily focused on learning and practicing modern web development concepts, including the Next.js 
 App Router, React components and hooks, server actions, form handling, responsive layouts, authentication and Tailwind CSS.
@@ -9,7 +9,7 @@ and manage learning content, like technologies, tools or projects.
 
 ---
 ## Start
-Install dependencies, than run the development server:
+Install dependencies, then run the development server:
 
 ```bash
 pnpm i
@@ -18,7 +18,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Ressources and Documentations
+## Resources and Documentations
 - [Next.js Documentation](https://nextjs.org/docs) - Used for learning Next.js 
 - [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) - Used for Deployment
 

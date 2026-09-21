@@ -1,0 +1,55 @@
+"use client";
+
+import React, {useState} from "react";
+import {authClient} from "@/src/lib/auth-client";
+import {useRouter} from "next/navigation";
+
+export default function LoginPage() {
+    const router = useRouter();
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    async function handleSubmit(
+        event: React.SubmitEvent<HTMLFormElement>
+    ) {
+        event.preventDefault();
+
+        const { data, error } = await authClient.signUp.email({
+            name,
+            email,
+            password,
+            fetchOptions: {
+                onSuccess: () => {
+                    router.push("/login"); // redirect to login page
+                },
+            },
+        });
+
+        if (error) {
+            console.error("sign up error:",error);
+            return;
+        }
+
+        console.log("registration success:", data);
+    }
+
+    return (
+        <>
+            <div className="flex align-center justify-center p-3">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                    <label htmlFor="name">Name</label>
+                    <input type="name" value={name} id="name" name="name" placeholder="name" required
+                           onChange={(e) => setName(e.target.value)} />
+                    <label htmlFor="email">Email</label>
+                    <input type="email" value={email} id="email" name="email" placeholder="Email" required
+                           onChange={(e) => setEmail(e.target.value)} />
+                    <label htmlFor="password">Password</label>
+                    <input type="password" value={password} id="password" name="password" placeholder="Password" required
+                           onChange={(e) => setPassword(e.target.value)}/>
+                    <button type="submit" className="p-2 cursor-pointer">Sign Up</button>
+                </form>
+            </div>
+        </>
+    )
+}

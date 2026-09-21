@@ -1,6 +1,6 @@
 # Requirements - Implementation of a Learning Dashboard
 
-The Requirements might be updated during the implemantation of some features.
+The Requirements might be updated during the implementation of some features.
 The Priority is based on the MoSCoW principle.
 
 ### Functional
