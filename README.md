@@ -1,12 +1,17 @@
 # Learning Dashboard (WIP)
 
-**Live Demo:** Coming soon
-
 A full-stack learning project built with **Next.js, TypeScript, React,** and a **relational database**.
 
 The project started as a way to deepen my practical knowledge of modern React and Next.js development after
 completing the Next.js App Router tutorial. I am now developing it into an application for managing and visualizing 
 learning progress across different categories.
+
+### Live-Demo: [Learning Dashboard](https://learning-dashboard-silk-kappa.vercel.app/login)
+You can explore the navigation, layout, authentication flow and light/dark mode using the demo account below.
+```testuser
+Email: testuser@test.de
+Password: Pa55w.rd
+```
 
 ### Work in Progress
 The project ist being developed by myself incrementally. The core  application architecture, authentication, 
