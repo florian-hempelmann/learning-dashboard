@@ -33,9 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-screen flex-col bg-background text-foreground">
         <Providers>
           <Header />
-            <main className="flex-1">
-              {children}
-            </main>
+            {children}
         </Providers>
       </body>
     </html>

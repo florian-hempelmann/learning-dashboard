@@ -36,7 +36,7 @@ export default function LoginPage() {
 
     return (
         <>
-            <div className="flex align-center justify-center p-3">
+            <main className="flex flex-1 flex-col items-center justify-center p-3">
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                     <label htmlFor="name">Name</label>
                     <input type="name" value={name} id="name" name="name" placeholder="name" required
@@ -49,7 +49,7 @@ export default function LoginPage() {
                            onChange={(e) => setPassword(e.target.value)}/>
                     <button type="submit" className="p-2 cursor-pointer">Sign Up</button>
                 </form>
-            </div>
+            </main>
         </>
     )
 }

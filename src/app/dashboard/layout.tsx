@@ -23,7 +23,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
         redirect("/login")
     }
     return (
-        <main className="flex flex-col md:flex-row md:overflow-hidden">
+        <main className="flex flex-1 flex-col md:flex-row md:overflow-hidden">
             <div className="w-full flex-none md:w-64">
                 <SideNav />
             </div>

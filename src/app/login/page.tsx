@@ -35,20 +35,22 @@ export default function LoginPage() {
 
     return (
         <>
-        <div className="flex align-center justify-center p-3">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                <label htmlFor="email">Email</label>
-                <input type="email" value={email} id="email" name="email" placeholder="Email" required
-                       onChange={(e) => setEmail(e.target.value)} />
-                <label htmlFor="password">Password</label>
-                <input type="password" value={password} id="password" name="password" placeholder="Password" required
-                       onChange={(e) => setPassword(e.target.value)}/>
-                <button type="submit" className="p-2 cursor-pointer">Login</button>
-            </form>
-        </div>
-        <div className="flex align-center justify-center p-3 ">
-            <Link href="/sign-up" className="hover:text-primary-foreground"> No Account? You can sign up here.</Link>
-        </div>
+            <main className="flex flex-1 flex-col items-center justify-center">
+                <div className="flex justify-center p-3">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                        <label htmlFor="email">Email</label>
+                        <input type="email" value={email} id="email" name="email" placeholder="Email" required
+                               onChange={(e) => setEmail(e.target.value)} />
+                        <label htmlFor="password">Password</label>
+                        <input type="password" value={password} id="password" name="password" placeholder="Password" required
+                               onChange={(e) => setPassword(e.target.value)}/>
+                        <button type="submit" className="p-2 cursor-pointer">Login</button>
+                    </form>
+                </div>
+                <div className="flex align-center justify-center p-3 ">
+                    <Link href="/sign-up" className="hover:text-primary-foreground"> No Account? You can sign up here.</Link>
+                </div>
+            </main>
         </>
     )
 }
