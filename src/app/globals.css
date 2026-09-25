@@ -14,7 +14,9 @@
   --blue-400: #60a5fa;
   --blue-600: #2563eb;
   --yellow-50: #fefce8;
-  --red-500: #f44336;
+  --red-700: #B91C1C;
+  --green-700: #15803D;
+  --yellow-700: #A16207;
 }
 
 /* ─────────────────────────────
@@ -33,7 +35,10 @@
   --muted-foreground: var(--gray-500);
   --border: var(--slate-600);
 
-  --danger: var(--red-500);
+  --danger: var(--red-700);
+  --success: var(--green-700);
+  --warning: var(--yellow-700);
+  --info: var(--blue-600);
 
   --surface-shadow:
           0 6px 12px rgba(0, 0, 0, 0.18),
@@ -56,7 +61,10 @@
   --muted-foreground: var(--slate-300);
   --border: var(--slate-300);
 
-  --danger: var(--red-500);
+  --danger: var(--red-700);
+  --success: var(--green-700);
+  --warning: var(--yellow-700);
+  --info: var(--blue-400);
 
   --surface-shadow:
           0 6px 12px rgba(0, 0, 0, 0.4),
@@ -76,20 +84,15 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --color-danger: var(--danger);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
 }
 
 
 body {
   background: var(--background);
   color: var(--foreground);
-}
-
-button {
-  background: var(--surface);
-  color: var(--surface-foreground);
-  &:hover {
-    color: var(--primary-foreground);
-  }
 }
 
 h1 {

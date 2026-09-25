@@ -37,7 +37,7 @@ export function ThemeSwitcher() {
                 ? "switch to light theme"
                 : "switch to dark theme"
           }
-          className="cursor-pointer p-2 text-surface-foreground hover:text-primary-foreground rounded-full"
+          className="cursor-pointer p-2 text-surface-foreground hover:text-primary-foreground rounded-full bg-surface"
       >
         {resolvedTheme === "dark" ? (
             <SunIcon className="h-6 w-6" />

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@better-auth/drizzle-adapter": "^1.7.5",
+    "@deemlol/next-icons": "^0.2.7",
     "@heroicons/react": "^2.2.0",
     "@neondatabase/serverless": "^1.1.0",
     "bcrypt": "^6.0.0",

@@ -2,7 +2,7 @@
 
 import React, {Suspense} from "react";
 import Link from "next/link";
-import SignInForm from "@/src/app/components/sign-in/sign-in-form";
+import SignInForm from "@/src/app/components/forms/sign-in-form";
 
 export default function SignInPage() {
     return (
