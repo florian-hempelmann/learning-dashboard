@@ -16,7 +16,7 @@ export function Header() {
             fetchOptions: {
                 onSuccess: () => {
                     // console.log("Debug: Reaches Sign Out onSuccess");
-                    router.push("/login"); // redirect to login page
+                    router.push("/sign-in"); // redirect to login page
                 },
             },
         });

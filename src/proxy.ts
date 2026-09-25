@@ -8,12 +8,17 @@ export async function proxy(request: NextRequest) {
     })
 
     if(!session) {
-        return NextResponse.redirect(new URL("/login", request.url));
+        const loginUrl = new URL("/sign-in", request.url);
+        loginUrl.searchParams.set(
+            "callbackUrl",
+            request.nextUrl.pathname + request.nextUrl.search
+        );
+        return NextResponse.redirect(loginUrl);
     }
 
     return NextResponse.next();
 }
 
 export const config = {
-    matcher: ["/dashboard"], // Specify the routes the middleware applies to
+        matcher: ["/((?!login|api|_next|).*)", "/dashboard/:path*"], // Specify the routes the middleware applies to
 };
