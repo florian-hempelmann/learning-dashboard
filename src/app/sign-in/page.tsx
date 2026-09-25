@@ -3,12 +3,17 @@
 import React, {useState} from "react";
 import {authClient} from "@/src/lib/auth-client";
 import {useRouter} from "next/navigation";
+import {useSearchParams} from "next/navigation";
 import Link from "next/link";
 
 export default function LoginPage() {
     const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const searchParams = useSearchParams();
+    const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
 
     async function handleSubmit(
         event: React.SubmitEvent<HTMLFormElement>
@@ -20,13 +25,14 @@ export default function LoginPage() {
             password,
             fetchOptions: {
                 onSuccess: () => {
-                    router.push("/dashboard"); // redirect to login page
+                    router.push(callbackUrl); // redirect to login page
                 },
             },
         });
 
         if (error) {
             console.error("login error:", error);
+            setErrorMessage(error.message ?? "Login error");
             return;
         }
 
@@ -49,6 +55,13 @@ export default function LoginPage() {
                 </div>
                 <div className="flex align-center justify-center p-3 ">
                     <Link href="/sign-up" className="hover:text-primary-foreground"> No Account? You can sign up here.</Link>
+                </div>
+                <div>
+                    {errorMessage && (
+                        <>
+                            <p className="text-sm text-danger">{errorMessage}</p>
+                        </>
+                    )}
                 </div>
             </main>
         </>

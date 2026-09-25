@@ -14,6 +14,7 @@
   --blue-400: #60a5fa;
   --blue-600: #2563eb;
   --yellow-50: #fefce8;
+  --red-500: #f44336;
 }
 
 /* ─────────────────────────────
@@ -31,6 +32,8 @@
   --muted: var(--neutral-200);
   --muted-foreground: var(--gray-500);
   --border: var(--slate-600);
+
+  --danger: var(--red-500);
 
   --surface-shadow:
           0 6px 12px rgba(0, 0, 0, 0.18),
@@ -53,6 +56,8 @@
   --muted-foreground: var(--slate-300);
   --border: var(--slate-300);
 
+  --danger: var(--red-500);
+
   --surface-shadow:
           0 6px 12px rgba(0, 0, 0, 0.4),
           inset 0 1px 0 rgba(255, 255, 255, 0.4);
@@ -70,6 +75,7 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
+  --color-danger: var(--danger);
 }
 
 

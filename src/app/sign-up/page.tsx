@@ -9,6 +9,7 @@ export default function LoginPage() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     async function handleSubmit(
         event: React.SubmitEvent<HTMLFormElement>
@@ -21,13 +22,14 @@ export default function LoginPage() {
             password,
             fetchOptions: {
                 onSuccess: () => {
-                    router.push("/login"); // redirect to login page
+                    router.push("/sign-in"); // redirect to login page
                 },
             },
         });
 
         if (error) {
             console.error("sign up error:",error);
+            setErrorMessage(error.message ?? "Login error");
             return;
         }
 
@@ -49,6 +51,13 @@ export default function LoginPage() {
                            onChange={(e) => setPassword(e.target.value)}/>
                     <button type="submit" className="p-2 cursor-pointer">Sign Up</button>
                 </form>
+                <div>
+                    {errorMessage && (
+                        <>
+                            <p className="text-sm text-danger">{errorMessage}</p>
+                        </>
+                    )}
+                </div>
             </main>
         </>
     )
