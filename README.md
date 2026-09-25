@@ -85,7 +85,9 @@ DATABASE_URL="postgresql://USER:PASSWORD@HOST/DATABASE"
 BETTER_AUTH_SECRET="your-secret-here"
 BETTER_AUTH_URL="http://localhost:3000"
 ```
-- Note: The values shown above are placeholders. Actual credentials are not included in the repository.
+Note: 
+- The values shown above are placeholders. Actual credentials are not included in the repository.
+- You might need to change paths in drizzle.config.ts and /src/db/drizzle.ts to env.local
 
 
 **Create and seed database tables:**
