@@ -1,7 +1,7 @@
 "use client";
 
 import React, {Suspense} from "react";
-import SignUpForm from "@/src/app/components/sign-up/sign-up-form";
+import SignUpForm from "@/src/app/components/forms/sign-up-form";
 import Link from "next/link";
 
 export default function SignUpPage() {

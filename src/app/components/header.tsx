@@ -1,33 +1,12 @@
 "use client"
 
-import {ThemeSwitcher} from "@/src/app/components/theme-switcher";
-import {PowerIcon} from "@heroicons/react/24/outline";
+import {ThemeSwitcher} from "@/src/app/components/dashboard/buttons/theme-switcher";
 import {usePathname} from "next/navigation";
 import React from "react";
-import {useRouter} from "next/navigation";
-import {authClient} from "@/src/lib/auth-client";
+import {SignOutButton} from "@/src/app/components/dashboard/buttons/sign-out-button";
 
 export function Header() {
-    const router = useRouter();
     const pathname = usePathname();
-
-    async function handleSignOut() {
-        const {error} = await authClient.signOut({
-            fetchOptions: {
-                onSuccess: () => {
-                    // console.log("Debug: Reaches Sign Out onSuccess");
-                    router.push("/sign-in"); // redirect to login page
-                },
-            },
-        });
-
-        if (error) {
-            console.error("logout error:", error);
-            return;
-        }
-
-        console.log("logout success:");
-    }
 
     const titles: Record<string, string> = {
         "/dashboard/learning-goals": "My Learning Goals",
@@ -46,9 +25,7 @@ export function Header() {
             </div>
             <div className='absolute right-4 top-1/2 -translate-y-1/2 space-y-2'>
                 <ThemeSwitcher />
-                <button className="flex p-2 cursor-pointer rounded-full" onClick={handleSignOut}>
-                    <PowerIcon className="w-6 h-6" />
-                </button>
+                <SignOutButton />
             </div>
             <div className="navbar-transition">
                 <div className="navbar-transition__curve" />

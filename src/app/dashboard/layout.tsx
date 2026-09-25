@@ -1,4 +1,4 @@
-import SideNav from '@/src/app/components/dashboard/sidenav';
+import SideNav from '@/src/app/components/dashboard/navigation/sidenav';
 import { Metadata } from 'next';
 import {auth} from "@/src/lib/auth";
 import React from "react";
